@@ -14,9 +14,9 @@ client.on("ready", () => {
     setTimeout(() => {
       const onlineCount = guild.members.cache.filter(m => m.presence.status === 'online').size
       client.user.setActivity(`Among Us com ${onlineCount} ඞ`);
+      console.log('Bot status updated')
     }, 60000);
   }
-  
 });
 
 const channels = config.channels
