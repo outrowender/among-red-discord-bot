@@ -18,9 +18,9 @@ client.on("ready", () => {
 
   updateMessage()
 
-  while (true) {
+ /*  while (true) {
     setTimeout(updateMessage, 60000);
-  }
+  } */
 });
 
 const channels = config.channels;
