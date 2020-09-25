@@ -9,7 +9,14 @@ client.on("ready", () => {
   console.log(
     `Bot has started, with ${client.users.cache.size} users, in ${client.channels.cache.size} channels of ${client.guilds.cache.size} guilds.`
   );
-  client.user.setActivity(`Among Us`);
+  
+  while (true) {
+    setTimeout(() => {
+      const onlineCount = guild.members.cache.filter(m => m.presence.status === 'online').size
+      client.user.setActivity(`Among Us com ${onlineCount} ඞ`);
+    }, 60000);
+  }
+  
 });
 
 const channels = config.channels
