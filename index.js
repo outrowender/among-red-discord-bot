@@ -36,8 +36,10 @@ client.on("message", async (message) => {
   if (message.author.bot) return;
 
   if(message.member.roles.cache.find(r => r.id === config["mod-role"])){
-    message.delete();
     message.channel.send(message);
+    setTimeout(() => {
+      message.delete();
+    }, 1000);
   }
 
   if (!message.content.startsWith(config.prefix)) return;
