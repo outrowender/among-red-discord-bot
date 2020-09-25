@@ -11,16 +11,15 @@ client.on("ready", () => {
   );
 
   const updateMessage = () => {
-    const onlineCount = guild.members.cache.filter((m) => m.presence.status === "online").size;
-    client.user.setActivity(`Among Us com ${onlineCount} ඞ`);
+    client.user.setActivity(`Among Us com ${client.users.cache.size} ඞ`);
     console.log("Bot status updated");
   };
 
   updateMessage()
 
- /*  while (true) {
+   while (true) {
     setTimeout(updateMessage, 60000);
-  } */
+  } 
 });
 
 const channels = config.channels;
