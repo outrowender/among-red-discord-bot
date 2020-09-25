@@ -17,8 +17,8 @@ client.on("ready", () => {
 
   updateMessage()
 
-   while (true) {
-    setTimeout(updateMessage, 60000);
+  while (true) {
+    setInterval(updateMessage, 60000);
   } 
 });
 
