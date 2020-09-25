@@ -10,16 +10,7 @@ client.on("ready", () => {
     `Bot has started, with ${client.users.cache.size} users, in ${client.channels.cache.size} channels of ${client.guilds.cache.size} guilds.`
   );
 
-  const updateMessage = () => {
-    client.user.setActivity(`Among Us com ${client.users.cache.size} ඞ`);
-    console.log("Bot status updated");
-  };
-
-  updateMessage()
-
-  while (true) {
-    setInterval(updateMessage, 60000);
-  } 
+  client.user.setActivity(`Among Us com ${client.users.cache.size} ඞ`);
 });
 
 const channels = config.channels;
