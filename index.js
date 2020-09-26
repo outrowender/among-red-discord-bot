@@ -16,7 +16,11 @@ const updateUsersCount = () => {
     }
   }
 
-  client.user.setActivity(`Among Us com ${client.users.cache.size} ඞ`);
+  if (membersCount == 0) {
+    client.user.setActivity('Among Us ඞ')
+  }else{
+    client.user.setActivity(`Among Us com ${membersCount} ඞ`);
+  }
 };
 
 client.on("ready", () => {
