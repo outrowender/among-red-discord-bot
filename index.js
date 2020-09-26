@@ -5,17 +5,36 @@ const client = new Discord.Client();
 
 const config = require("./config.json");
 
+const updateUsersCount = () => {
+  const channels = client.channels.cache.filter((x) => x.type == "voice");
+
+  let membersCount = 0;
+
+  for (const [channelID, channel] of channels) {
+    for (const [memberID, member] of channel.members) {
+      membersCount++;
+    }
+  }
+
+  client.user.setActivity(`Among Us com ${client.users.cache.size} ඞ`);
+};
+
 client.on("ready", () => {
   console.log(
     `Bot has started, with ${client.users.cache.size} users, in ${client.channels.cache.size} channels of ${client.guilds.cache.size} guilds.`
   );
 
-  client.user.setActivity(`Among Us com ${client.users.cache.size} ඞ`);
+  updateUsersCount();
 });
+
+client.on("guildMemberAdd", (member) => updateUsersCount());
 
 const channels = config.channels;
 
 client.on("voiceStateUpdate", function (oldMember, newMember) {
+
+  updateUsersCount()
+
   //clean all roles
   oldMember.member.roles.cache.forEach((role) => {
     if (Object.values(channels).includes(role.id))
