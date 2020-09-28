@@ -17,9 +17,9 @@ const updateUsersCount = () => {
   }
 
   if (membersCount == 0) {
-    client.user.setActivity('Among Us ඞ')
+    client.user.setActivity('ඞ')
   }else{
-    client.user.setActivity(`Among Us com ${membersCount} ඞ`);
+    client.user.setActivity(`com ${membersCount} tripulantes`);
   }
 };
 
